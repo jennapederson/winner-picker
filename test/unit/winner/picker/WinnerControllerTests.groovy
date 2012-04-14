@@ -170,4 +170,15 @@ class WinnerControllerTests {
 		def winner = controller.pickWinner()
 		assert winner == null
 	}
+
+	void testPickWinnerSetsAlreadyAWinner() {
+		populateValidParams(params)
+		def potentialWinner = new Winner(params)
+
+		assert potentialWinner.save() != null
+		assert Winner.count() == 1
+
+		def winner = controller.pickWinner()
+		assert potentialWinner.alreadyAWinner
+	}	
 }

@@ -30,7 +30,7 @@ class WinnerController {
 		}
 		int num = getNextRandomNumber(potentialWinners.size())
 		def winner = potentialWinners[num]
-		winner.alreadyAWinner = true
+//		winner.alreadyAWinner = true
 		return winner
 	}
 	

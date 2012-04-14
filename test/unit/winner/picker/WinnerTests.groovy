@@ -11,7 +11,8 @@ import org.junit.*
 @TestFor(Winner)
 class WinnerTests {
 
-    void testSomething() {
-       true == true
+    void testDefaultOfAlreadyAWinner() {
+		Winner winner = new Winner()
+       	assert winner.alreadyAWinner
     }
 }
