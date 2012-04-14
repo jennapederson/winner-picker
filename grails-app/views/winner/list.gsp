@@ -13,6 +13,7 @@
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="pick" action="pick"><g:message code="default.pick.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-winner" class="content scaffold-list" role="main">
@@ -24,7 +25,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="alreadyAWinner" title="${message(code: 'winner.alreadyAWinner.label', default: 'Already AW inner')}" />
+						<g:sortableColumn property="alreadyAWinner" title="${message(code: 'winner.alreadyAWinner.label', default: 'Already A Winner?')}" />
 					
 						<g:sortableColumn property="firstName" title="${message(code: 'winner.firstName.label', default: 'First Name')}" />
 					

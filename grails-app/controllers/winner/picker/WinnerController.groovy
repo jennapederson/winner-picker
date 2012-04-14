@@ -5,10 +5,38 @@ import org.springframework.dao.DataIntegrityViolationException
 class WinnerController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	static Random random = new Random()
+	
     def index() {
         redirect(action: "list", params: params)
     }
+	
+	def pick() {
+		Winner winnerInstance = pickWinner()
+		if (winnerInstance == null) {
+			flash.message = message(code: 'default.noWinner.message', args: [message(code: 'winner.label', default: 'Winner')])
+		} else {
+			flash.message = message(code: 'default.winner.message', args: [winnerInstance.firstName, winnerInstance.lastName, message(code: 'winner.label', default: 'Winner')])
+		}
+		redirect(action: "list", params: params)
+	}
+	
+	def pickWinner() {
+		def potentialWinners = Winner.list().findAll { winner ->
+			!winner.alreadyAWinner
+		}
+		if (potentialWinners.size() < 1) {
+			return null
+		}
+		int num = getNextRandomNumber(potentialWinners.size())
+		def winner = potentialWinners[num]
+		winner.alreadyAWinner = true
+		return winner
+	}
+	
+	def getNextRandomNumber(int maxWinners) {
+		random.nextInt(maxWinners)
+	}
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)

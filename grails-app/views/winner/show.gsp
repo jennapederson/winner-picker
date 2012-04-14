@@ -25,7 +25,7 @@
 			
 				<g:if test="${winnerInstance?.alreadyAWinner}">
 				<li class="fieldcontain">
-					<span id="alreadyAWinner-label" class="property-label"><g:message code="winner.alreadyAWinner.label" default="Already AW inner" /></span>
+					<span id="alreadyAWinner-label" class="property-label"><g:message code="winner.alreadyAWinner.label" default="Already A Winner?" /></span>
 					
 						<span class="property-value" aria-labelledby="alreadyAWinner-label"><g:formatBoolean boolean="${winnerInstance?.alreadyAWinner}" /></span>
 					

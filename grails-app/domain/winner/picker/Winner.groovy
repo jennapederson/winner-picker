@@ -7,5 +7,5 @@ class Winner {
 	
 	String firstName
 	String lastName
-	boolean alreadyAWinner
+	boolean alreadyAWinner = false
 }

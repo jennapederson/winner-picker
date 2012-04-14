@@ -159,4 +159,15 @@ class WinnerControllerTests {
         assert Winner.get(winner.id) == null
         assert response.redirectedUrl == '/winner/list'
     }
+	
+	void testGetRandomNumber() {
+		int num = controller.getNextRandomNumber(1)
+		assert num == 0
+	}
+	
+	void testPickWinner() {
+		assert Winner.count() == 0
+		def winner = controller.pickWinner()
+		assert winner == null
+	}
 }

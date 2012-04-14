@@ -4,7 +4,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: winnerInstance, field: 'alreadyAWinner', 'error')} ">
 	<label for="alreadyAWinner">
-		<g:message code="winner.alreadyAWinner.label" default="Already AW inner" />
+		<g:message code="winner.alreadyAWinner.label" default="Already A Winner?" />
 		
 	</label>
 	<g:checkBox name="alreadyAWinner" value="${winnerInstance?.alreadyAWinner}" />
