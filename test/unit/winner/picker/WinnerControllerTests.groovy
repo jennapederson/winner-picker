@@ -12,8 +12,9 @@ class WinnerControllerTests {
 
     def populateValidParams(params) {
       assert params != null
-      // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+      params["firstName"] = 'someValidName'
+	  params["lastName"] = 'someValidName'
+	  params["alreadyAWinner"] = false
     }
 
     void testIndex() {
@@ -105,8 +106,10 @@ class WinnerControllerTests {
 
         // test invalid parameters in update
         params.id = winner.id
-        //TODO: add invalid values to params object
-
+		params.firstName = true
+		params.lastName = false
+		params.alreadyAWinner = "someInvalidString"
+		
         controller.update()
 
         assert view == "/winner/edit"
