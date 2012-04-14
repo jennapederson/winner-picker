@@ -13,6 +13,6 @@ class WinnerTests {
 
     void testDefaultOfAlreadyAWinner() {
 		Winner winner = new Winner()
-       	assert winner.alreadyAWinner
+       	assert !winner.alreadyAWinner
     }
 }
